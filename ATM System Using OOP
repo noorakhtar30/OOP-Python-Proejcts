@@ -1,0 +1,87 @@
+class Atm:
+    def __init__(self):
+        self.pin = ""
+        self.balance = 0
+        
+        self.menu()
+
+    def menu(self):
+        print( """Hello, How would tou like to proceed?
+                  Enter 1 to create a pin.
+                  Enter 2 to desposit money.
+                  Enter 3 to withdraw money.
+                  Enter 4 to Check Balance.
+                  Enter 4 to Exit.""")
+        user_input = input("Enter the number to move forward.")
+        if user_input == "1":
+            self.Create_pin()
+        elif user_input == "2":
+            self.Desposit()
+        elif user_input == "3":
+            self.withdraw()
+        elif user_input =="4":
+            self.balance()
+        elif user_input == "5":
+            self.exit()
+        
+    def Create_pin(self):
+        self.pin = input("Create your pin: ")
+        print("Pin has succesfully set.")
+    def Desposit(self):
+        attempt = 3
+        while attempt > 0:
+            password = input("Enter you pin: ")
+            if password == self.pin:
+                amount = int(input("Enter the amount to deposit: "))
+                self.balance = self.balance + amount
+                print("Succesfully deposited",amount,"rs only")
+                return
+            else:
+                print("Invalid pin.")
+                attempt -= 1
+        print("Too many attempt try again later.")
+    def Withdraw(self):
+        attempt = 3
+        while attempt > 0:
+            password = input("Enter your pin: ")
+            if password == self.pin:
+                withdraw_money =int(input("Enter the amount to withdraw: "))
+                if withdraw_money < self.balance:
+                    self.balance = self.balance - withdraw_money
+                    print("Succesfully wihtdrawn",withdraw_money,"from your account")
+                    return
+                else:
+                    print("Error: Your account balance is too low for this transaction")
+
+            else:
+                print("Invalid pin")
+                attempt -= 1
+    print("Too many attempt try again later.") 
+    
+    
+    
+    
+    def Balance(self):
+        attempt = 3
+        while attempt > 0:
+            password = input("Enter your pin: ")
+            if password == self.pin:
+                print(self.balance,"rs only.")
+                return
+            else:
+                print("Invalid pin")
+                attempt -= 1
+        print("Too many attempts, try later.")
+    def exit(self):
+            exit_now = input("Enter q to exit: ")
+            if exit_now == "q":
+                print("Succesfully Exit.")
+            else:
+                print("Invalid key, press q to exit.")
+                
+        
+
+                
+        
+        
+sbi = Atm()
