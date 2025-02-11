@@ -1,7 +1,9 @@
 class Atm:
     def __init__(self):
-        self.pin = ""
-        self.balance = 0
+        # below is the instance variable 
+        # used __ to hide the pin and balance from the user
+        self.__pin = ""
+        self.__balance = 0
         
         self.menu()
 
@@ -25,15 +27,15 @@ class Atm:
             self.exit()
         
     def Create_pin(self):
-        self.pin = input("Create your pin: ")
+        self.__pin = input("Create your pin: ")
         print("Pin has succesfully set.")
     def Desposit(self):
         attempt = 3
         while attempt > 0:
             password = input("Enter you pin: ")
-            if password == self.pin:
+            if password == self.__pin:
                 amount = int(input("Enter the amount to deposit: "))
-                self.balance = self.balance + amount
+                self.__balance = self.__balance + amount
                 print("Succesfully deposited",amount,"rs only")
                 return
             else:
@@ -45,10 +47,10 @@ class Atm:
         attempt = 3
         while attempt > 0:
             password = input("Enter your pin: ")
-            if password == self.pin:
+            if password == self.__pin:
                 withdraw_money =int(input("Enter the amount to withdraw: "))
-                if withdraw_money < self.balance:
-                    self.balance = self.balance - withdraw_money
+                if withdraw_money < self.__balance:
+                    self.__balance = self.__balance - withdraw_money
                     print("Succesfully wihtdrawn",withdraw_money,"from your account")
                     return
                 else:
@@ -63,8 +65,8 @@ class Atm:
         attempt = 3
         while attempt > 0:
             password = input("Enter your pin: ")
-            if password == self.pin:
-                print(self.balance,"rs only.")
+            if password == self.__pin:
+                print(self.__balance,"rs only.")
                 return
             else:
                 print("Invalid pin")
