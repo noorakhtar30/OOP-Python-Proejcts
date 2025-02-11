@@ -40,6 +40,7 @@ class Atm:
                 print("Invalid pin.")
                 attempt -= 1
         print("Too many attempt try again later.")
+        
     def Withdraw(self):
         attempt = 3
         while attempt > 0:
@@ -58,9 +59,6 @@ class Atm:
                 attempt -= 1
     print("Too many attempt try again later.") 
     
-    
-    
-    
     def Balance(self):
         attempt = 3
         while attempt > 0:
@@ -72,16 +70,12 @@ class Atm:
                 print("Invalid pin")
                 attempt -= 1
         print("Too many attempts, try later.")
+        
     def exit(self):
             exit_now = input("Enter q to exit: ")
             if exit_now == "q":
                 print("Succesfully Exit.")
             else:
                 print("Invalid key, press q to exit.")
-                
-        
-
-                
-        
-        
+                   
 sbi = Atm()
